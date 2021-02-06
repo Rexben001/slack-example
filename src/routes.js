@@ -16,6 +16,8 @@ router.get('/alert', async (req, res) => {
     //   ],
     // });
     // console.log('resp>>>', resp);
+
+    console.log('req.body>>>', req.body);
     res.json({ date: new Date().toISOString() });
   } catch (error) {
     console.error('err>>', error);
