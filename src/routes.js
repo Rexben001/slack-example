@@ -5,7 +5,7 @@ router.get('/alert', async (req, res) => {
   try {
     const val = 'Me';
     const { resp } = await Axios.post(
-      'https://hooks.slack.com/services/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',
+      'https://hooks.slack.com/services/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',
       {
         blocks: [
           {
