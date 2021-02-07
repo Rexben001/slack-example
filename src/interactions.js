@@ -2,6 +2,7 @@ const { createMessageAdapter } = require('@slack/interactive-messages');
 const slackSigningSecret = process.env.SLACK_SIGNING_SECRET;
 const slackInteractions = createMessageAdapter(slackSigningSecret);
 const articleOrBookButton = require('./elements/articleOrBookButton.json');
+const freeTime = require('./elements/freeTime.json');
 
 module.exports.listenForInteractions = function (app) {
   app.use('/interactions', slackInteractions.requestListener());
@@ -16,26 +17,20 @@ function respondToSelectDropdown(payload, respond) {
 
   if (payload.callback_id == 'subjects') {
     switch (selectedOption) {
-      case 'anti_racism':
-        text = 'You selected anti racism.';
-        callbackId = 'anti_racism_article_book';
+      case 'well':
+        text = 'You doing well.';
+        callbackId = 'well_response';
         respondWithArticleOrBookNoButton(text, callbackId, respond);
         break;
-      case 'anti_sexism':
-        text = 'You selected anti sexism.';
-        callbackId = 'anti_sexism_article_book';
+      case 'neutral':
+        text = 'You selected neutral.';
+        callbackId = 'neutral_response';
         respondWithArticleOrBookNoButton(text, callbackId, respond);
         break;
-      case 'lgbtq_allyship':
-        text = 'You selected LGBTQ+ Allyship.';
-        callbackId = 'lgbtq_allyship_article_book';
+      case 'lucky':
+        text = 'You selected felling lucky.';
+        callbackId = 'lucky_response';
         respondWithArticleOrBookNoButton(text, callbackId, respond);
-        break;
-      case 'autism_allyship':
-        text = 'You selected autism allyship.';
-        callbackId = 'autism_allyship_article_book';
-        respondWithArticleOrBookNoButton(text, callbackId, respond);
-        break;
     }
   }
   // Return a replacement message
@@ -44,10 +39,9 @@ function respondToSelectDropdown(payload, respond) {
 
 function respondWithArticleOrBookNoButton(text, callbackId, respond) {
   articleOrBookButton.callback_id = callbackId;
-  articleOrBookButton.text = 'Do you prefer an article or a book?';
   respond({
     text: text,
-    attachments: [articleOrBookButton],
+    attachments: [freeTime],
     replace_original: true,
   });
 }

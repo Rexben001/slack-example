@@ -1,5 +1,5 @@
 {
-  "text": "Hello! What subject would you like to learn more about?",
+  "text": "Welcome. How are you doing?",
   "fallback": "Upgrade your Slack client to use messages like these.",
   "color": "#3AA3E3",
   "attachment_type": "default",
@@ -11,20 +11,16 @@
       "type": "select",
       "options": [
         {
-          "text": "Anti Racism",
-          "value": "anti_racism"
+          "text": "Doing Well",
+          "value": "well"
         },
         {
-          "text": "Anti Sexism",
-          "value": "anti_sexism"
+          "text": "Neutral",
+          "value": "neutral"
         },
         {
-          "text": "LGBTQ+ Allyship",
-          "value": "lgbtq_allyship"
-        },
-        {
-          "text": "Autism allyship",
-          "value": "autism_allyship"
+          "text": "Feeling Lucky",
+          "value": "lucky"
         }
       ]
     }

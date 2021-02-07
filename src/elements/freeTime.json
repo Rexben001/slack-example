@@ -1,0 +1,43 @@
+{
+  "text": "When are you free this week for a walk?",
+  "fallback": "Upgrade your Slack client to use messages like these.",
+  "color": "#3AA3E3",
+  "attachment_type": "default",
+  "callback_id": "subjects",
+  "actions": [
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "From"
+      },
+      "accessory": {
+        "type": "timepicker",
+        "initial_time": "13:37",
+        "placeholder": {
+          "type": "plain_text",
+          "text": "Select time",
+          "emoji": true
+        },
+        "action_id": "timepicker-action"
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "To"
+      },
+      "accessory": {
+        "type": "timepicker",
+        "initial_time": "13:37",
+        "placeholder": {
+          "type": "plain_text",
+          "text": "Select time",
+          "emoji": true
+        },
+        "action_id": "timepicker-action"
+      }
+    }
+  ]
+}
