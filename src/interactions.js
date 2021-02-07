@@ -16,19 +16,19 @@ function respondToSelectDropdown(payload, respond) {
   const selectedOption = payload.actions[0].selected_options[0].value;
 
   if (payload.callback_id == 'subjects') {
-    freeTime.callback_id = 'free_time';
+    hobbbies.callback_id = 'hobbies';
     respond({
-      text: `Thanks for telling me how you feel`,
-      attachments: [freeTime],
+      text: `Thanks for choosing a free time`,
+      attachments: [hobbies],
       replace_original: true,
     });
   }
 
   if (payload.callback_id == 'free_time') {
-    hobbbies.callback_id = 'hobbies';
+    freeTime.callback_id = 'free_time';
     respond({
-      text: `Thanks for choosing a free time`,
-      attachments: [hobbies],
+      text: `Thanks for telling me how you feel`,
+      attachments: [freeTime],
       replace_original: true,
     });
   }
