@@ -15,6 +15,7 @@ function listenForEvents(app) {
     console.log(
       `Received an app_mention event from user ${event.user} in channel ${event.channel}`
     );
+    respondToEvent(event.channel);
   });
 }
 
