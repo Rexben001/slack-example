@@ -16,7 +16,7 @@ function respondToSelectDropdown(payload, respond) {
   const selectedOption = payload.actions[0].selected_options[0].value;
 
   if (payload.callback_id == 'subjects') {
-    hobbbies.callback_id = 'hobbies';
+    hobbies.callback_id = 'hobbies';
     respond({
       text: `Thanks for choosing a free time`,
       attachments: [hobbies],
