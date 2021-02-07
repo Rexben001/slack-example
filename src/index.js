@@ -13,5 +13,6 @@ app.use(express.json());
 app.use('/', routes);
 
 app.get('/', (req, res) => res.send('API is running!!!'));
+app.post('/', (req, res) => res.json({ challenge: req.body.challenge }));
 
 app.listen(PORT, () => console.log(`Listening to PORT ${PORT}`));
