@@ -3,41 +3,93 @@
   "fallback": "Upgrade your Slack client to use messages like these.",
   "color": "#3AA3E3",
   "attachment_type": "default",
-  "callback_id": "subjects",
+  "callback_id": "free_time",
   "actions": [
     {
-      "type": "section",
-      "text": {
-        "type": "mrkdwn",
-        "text": "From"
-      },
-      "accessory": {
-        "type": "timepicker",
-        "initial_time": "13:37",
-        "placeholder": {
-          "type": "plain_text",
-          "text": "Select time",
-          "emoji": true
+      "name": "free_time_list",
+      "text": "Select time",
+      "type": "select",
+      "options": [
+        {
+          "text": "12:00",
+          "value": "12:00"
         },
-        "action_id": "timepicker-action"
-      }
+        {
+          "text": "12:30",
+          "value": "12:30"
+        },
+        {
+          "text": "13:00",
+          "value": "13:00"
+        },
+        {
+          "text": "13:30",
+          "value": "13:30"
+        },
+        {
+          "text": "14:00",
+          "value": "14:00"
+        },
+        {
+          "text": "14:30",
+          "value": "14:30"
+        },
+        {
+          "text": "15:00",
+          "value": "15:00"
+        },
+        {
+          "text": "15:30",
+          "value": "15:30"
+        },
+        {
+          "text": "16:00",
+          "value": "16:00"
+        },
+        {
+          "text": "16:30",
+          "value": "16:30"
+        },
+        {
+          "text": "17:00",
+          "value": "17:00"
+        },
+        {
+          "text": "17:30",
+          "value": "17:30"
+        },
+        {
+          "text": "18:00",
+          "value": "18:00"
+        }
+      ]
     },
     {
-      "type": "section",
-      "text": {
-        "type": "mrkdwn",
-        "text": "To"
-      },
-      "accessory": {
-        "type": "timepicker",
-        "initial_time": "13:37",
-        "placeholder": {
-          "type": "plain_text",
-          "text": "Select time",
-          "emoji": true
+      "name": "free_day_list",
+      "text": "Select day",
+      "type": "select",
+      "options": [
+        {
+          "text": "Monday",
+          "value": "monday"
         },
-        "action_id": "timepicker-action"
-      }
+        {
+          "text": "Tuesday",
+          "value": "tuesday"
+        },
+        {
+          "text": "Wednesday",
+          "value": "wednesday"
+        },
+        {
+          "text": "Thursday",
+          "value": "thursday"
+        },
+        {
+          "text": "Friday",
+          "value": "friday"
+        }
+      ]
     }
   ]
 }

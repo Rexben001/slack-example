@@ -1,8 +1,8 @@
 const { createMessageAdapter } = require('@slack/interactive-messages');
 const slackSigningSecret = process.env.SLACK_SIGNING_SECRET;
 const slackInteractions = createMessageAdapter(slackSigningSecret);
-const articleOrBookButton = require('./elements/articleOrBookButton.json');
 const freeTime = require('./elements/freeTime.json');
+const hobbies = require('./elements/hobbies.json');
 
 module.exports.listenForInteractions = function (app) {
   app.use('/interactions', slackInteractions.requestListener());
@@ -16,29 +16,28 @@ function respondToSelectDropdown(payload, respond) {
   const selectedOption = payload.actions[0].selected_options[0].value;
 
   if (payload.callback_id == 'subjects') {
-    switch (selectedOption) {
-      case 'well':
-        text = 'You doing well.';
-        callbackId = 'well_response';
-        respondWithArticleOrBookNoButton(text, callbackId, respond);
-        break;
-      case 'neutral':
-        text = 'You selected neutral.';
-        callbackId = 'neutral_response';
-        respondWithArticleOrBookNoButton(text, callbackId, respond);
-        break;
-      case 'lucky':
-        text = 'You selected felling lucky.';
-        callbackId = 'lucky_response';
-        respondWithArticleOrBookNoButton(text, callbackId, respond);
-    }
+    freeTime.callback_id = 'free_time';
+    respond({
+      text: `Thanks for telling me how you feel`,
+      attachments: [freeTime],
+      replace_original: true,
+    });
+  }
+
+  if (payload.callback_id == 'free_time') {
+    hobbbies.callback_id = 'hobbies';
+    respond({
+      text: `Thanks for choosing a free time`,
+      attachments: [hobbies],
+      replace_original: true,
+    });
   }
   // Return a replacement message
   return { text: 'Processing...' };
 }
 
-function respondWithArticleOrBookNoButton(text, callbackId, respond) {
-  articleOrBookButton.callback_id = callbackId;
+function nextResponse(text, callbackId, respond) {
+  freeTime.callback_id = callbackId;
   respond({
     text: text,
     attachments: [freeTime],
