@@ -3,6 +3,7 @@ const slackSigningSecret = process.env.SLACK_SIGNING_SECRET;
 const slackInteractions = createMessageAdapter(slackSigningSecret);
 const freeTime = require('./elements/freeTime.json');
 const hobbies = require('./elements/hobbies.json');
+const numberScale = require('./elements/numberScale.json');
 
 module.exports.listenForInteractions = function (app) {
   app.use('/interactions', slackInteractions.requestListener());
@@ -16,12 +17,18 @@ function respondToSelectDropdown(payload, respond) {
   const selectedOption = payload.actions[0].selected_options[0].value;
 
   if (payload.callback_id == 'subjects') {
-    hobbies.callback_id = 'hobbies';
+    numberScale.callback_id = 'numberScale';
     respond({
       text: `Thanks for choosing a free time`,
-      attachments: [hobbies],
+      attachments: [numberScale],
       replace_original: true,
     });
+    // hobbies.callback_id = 'hobbies';
+    // respond({
+    //   text: `Thanks for choosing a free time`,
+    //   attachments: [hobbies],
+    //   replace_original: true,
+    // });
   }
 
   if (payload.callback_id == 'free_time') {

@@ -6,23 +6,20 @@
   "callback_id": "subjects",
   "actions": [
     {
-      "name": "subject_list",
-      "text": "Select one",
-      "type": "select",
-      "options": [
-        {
-          "text": "Doing Well",
-          "value": "well"
-        },
-        {
-          "text": "Neutral",
-          "value": "neutral"
-        },
-        {
-          "text": "Feeling Lucky",
-          "value": "lucky"
+      "type": "input",
+      "block_id": "input123",
+      "label": {
+        "type": "plain_text",
+        "text": "Label of input"
+      },
+      "element": {
+        "type": "plain_text_input",
+        "action_id": "plain_input",
+        "placeholder": {
+          "type": "plain_text",
+          "text": "Enter some plain text"
         }
-      ]
+      }
     }
   ]
 }
