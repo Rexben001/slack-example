@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@slack/events-api": "^3.0.0",
+    "@slack/interactive-messages": "^2.0.0",
     "@slack/rtm-api": "^6.0.0",
     "@slack/web-api": "^5.15.0",
     "axios": "^0.21.1",

@@ -1,8 +1,12 @@
 require('dotenv').config();
 const express = require('express');
 const routes = require('./routes');
-
+const events = require('./app');
+const interactions = require('./interactions');
 const app = express();
+events.listenForEvents(app);
+// events.respondToEvent();
+interactions.listenForInteractions(app);
 
 const PORT = process.env.PORT || 4000;
 app.use(express.json());
